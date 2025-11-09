@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Powerhouse - All-in-One Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 AI Powerhouse</h1>
+        <p>All-in-One Gemini AI Assistant</p>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('chat')">💬 Chat</button>
+            <button class="tab-button" onclick="openTab('image')">🖼️ Image Analysis</button>
+            <button class="tab-button" onclick="openTab('code')">💻 Code Generator</button>
+            <button class="tab-button" onclick="openTab('content')">📝 Content Creator</button>
+        </div>
+
+        <!-- Chat Tab -->
+        <div id="chat" class="tab-content active">
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Ask me anything...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Analysis Tab -->
+        <div id="image" class="tab-content">
+            <div class="upload-area" id="uploadArea">
+                <p>📁 Drag & drop or click to upload image</p>
+                <input type="file" id="image-upload" accept="image/*" hidden>
+            </div>
+            <div id="image-preview"></div>
+            <input type="text" id="image-question" placeholder="Ask about this image...">
+            <button onclick="analyzeImage()">Analyze Image</button>
+            <div id="image-response"></div>
+        </div>
+
+        <!-- Code Generator Tab -->
+        <div id="code" class="tab-content">
+            <textarea id="code-description" placeholder="Describe what code you want to generate..."></textarea>
+            <select id="code-language">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="cpp">C++</option>
+            </select>
+            <button onclick="generateCode()">Generate Code</button>
+            <pre id="code-output"></pre>
+        </div>
+
+        <!-- Content Creator Tab -->
+        <div id="content" class="tab-content">
+            <input type="text" id="content-topic" placeholder="Enter topic...">
+            <select id="content-type">
+                <option value="blog post">Blog Post</option>
+                <option value="article">Article</option>
+                <option value="email">Email</option>
+                <option value="story">Story</option>
+            </select>
+            <select id="content-tone">
+                <option value="professional">Professional</option>
+                <option value="casual">Casual</option>
+                <option value="funny">Funny</option>
+                <option value="formal">Formal</option>
+            </select>
+            <button onclick="createContent()">Create Content</button>
+            <div id="content-output"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
